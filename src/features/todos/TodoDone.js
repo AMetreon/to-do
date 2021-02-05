@@ -1,11 +1,11 @@
-import React from 'react'
-import './features/todos/todos.css'
+import React from "react"
+import "./todos.css"
 
-const TodoListItem = ({ todo, onCompletedChange, onDelete }) => {
-  const { text, completed, id } = todo
+const DoneList = ({ todo, onCompletedChange, onDelete }) => {
+  const { id, completed, text } = todo
 
-  const handleCompletedChanged = (e) => {
-    onCompletedChange(e.target.checked, id )
+  const handleCompletedChanged = e => {
+    onCompletedChange(e.target.checked, id)
   }
 
   const handleDelete = () => {
@@ -14,22 +14,22 @@ const TodoListItem = ({ todo, onCompletedChange, onDelete }) => {
 
   return (
     <li>
-      <div className="view">
+      <div>
         <input
           className="toggle"
           type="checkbox"
           checked={completed}
           onChange={handleCompletedChanged}
         />
-        <div className="todo-text">{text}</div>
+        <del>{text}</del>
       </div>
       <div className="segment buttons">
         <button className="delete" onClick={handleDelete}>
-        x
+          x
         </button>
       </div>
     </li>
   )
 }
 
-export default TodoListItem
+export default DoneList

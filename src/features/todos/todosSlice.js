@@ -7,17 +7,17 @@ function nextTodoId(todos) {
 
 export default function todosReducer(state = initialState, action) {
   switch (action.type) {
-    case 'todos/todoAdded': {
+    case "todos/todoAdded": {
       return [
         ...state,
-          {
-            id: nextTodoId(state),
-            text: action.payload,
-            completed: false
-          }
-        ]
+        {
+          id: nextTodoId(state),
+          text: action.payload,
+          completed: false
+        }
+      ]
     }
-    case 'todos/todoToggled': {
+    case "todos/todoToggled": {
       return state.map(todo => {
         if (todo.id !== action.payload) {
           return todo
@@ -29,8 +29,20 @@ export default function todosReducer(state = initialState, action) {
       })
     }
 
-    case 'todos/todoDeleted': {
-      return {...state, state: state.filter(todo => todo.id !== action.payload)}
+    case "todos/todoChanged": {
+      return state.map(todo => {
+        if (todo.id !== action.payload.id) {
+          return todo
+        }
+        return {
+          ...todo,
+          text: action.payload.content
+        }
+      })
+    }
+
+    case "todos/todoDeleted": {
+      return state.filter(todo => todo.id !== action.payload)
     }
 
     default:

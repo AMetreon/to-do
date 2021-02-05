@@ -1,7 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import TodoList from './TodoList';
-import TodoForm from './TodoForm';
+import "./App.css"
+import TodoList from "./features/todos/TodoList"
+import TodoForm from "./features/header/TodoForm"
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
       <TodoForm />
       <TodoList />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
