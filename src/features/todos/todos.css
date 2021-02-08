@@ -1,26 +1,29 @@
 .toggle,
 .todo-text,
-.delete{
+.delete {
   display: inline-block;
 }
 
-.view{
+.view {
   width: 50%;
   float: left;
 }
 
-.segment-buttons{
+.segment-buttons {
   width: 50%;
   float: right;
 }
-button{
+button {
   float: right;
 }
 
-li{
+li {
   width: 100%;
   border: 1px solid black;
   padding: auto;
   margin: 10px;
 }
 
+.done-list li .view {
+  text-decoration: line-through;
+}
