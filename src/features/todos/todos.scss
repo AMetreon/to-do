@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap");
+
+.toggle,
+.todo-text,
+.delete {
+  display: inline-block;
+}
+.segment-buttons {
+  width: 50%;
+  float: right;
+}
+
+li.list-item {
+  width: 80%;
+  min-height: 1.5em;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 30px;
+  list-style-type: none;
+  background-color: #f0ead6;
+  font-family: "Antic Slab", serif;
+  display: inline-block;
+  position: relative;
+
+  .view {
+    min-height: 1em;
+    height: auto;
+    width: 100%;
+    float: left;
+    position: relative;
+
+    .toggle {
+      display: inline-block;
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    .todo-text {
+      padding-left: 10px;
+      display: inline-block;
+      min-width: 90%;
+      max-width: 95%;
+      height: auto;
+      word-wrap: break-word;
+    }
+  }
+
+  .buttons {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+
+    & button {
+      color: #b1b3b3ff;
+      border-radius: 10px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      outline: none;
+    }
+  }
+}
+
+.done-list li .view {
+  text-decoration: line-through;
+}

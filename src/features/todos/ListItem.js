@@ -56,11 +56,15 @@ const ListItem = ({ listItem, editable }) => {
   }
 
   const clickText = () => {
-    let renderedText = <div onClick={onClick}>{text}</div>
-    console.log(listItem)
+    let renderedText = (
+      <div className="todo-text" onClick={onClick}>
+        {text}
+      </div>
+    )
     if (clicked) {
       renderedText = (
         <input
+          className="todo-text"
           type="text"
           value={text}
           onChange={onChange}
@@ -75,23 +79,34 @@ const ListItem = ({ listItem, editable }) => {
     return renderedText
   }
 
+  const displayText = () => {
+    return editable ? <div className="todo-text">{clickText()}</div> : text
+  }
+
   return (
-    <li>
-      <div className="view">
-        <input
-          className="toggle"
-          type="checkbox"
-          checked={completed}
-          onChange={handleCompletedChanged}
-        />
-        {editable ? <div className="todo-text">{clickText()}</div> : text}
-      </div>
-      <div className="segment buttons">
-        <button className="delete" onClick={handleDelete}>
-          x
-        </button>
-      </div>
-    </li>
+    <div>
+      <li className="list-item">
+        <div className="view">
+          <input
+            className="toggle"
+            type="checkbox"
+            checked={completed}
+            onChange={handleCompletedChanged}
+          />
+
+          {editable ? (
+            <div className="todo-text">{clickText()}</div>
+          ) : (
+            <p className="todo-text"> {text} </p>
+          )}
+        </div>
+        <div className="buttons">
+          <button className="delete" onClick={handleDelete}>
+            x
+          </button>
+        </div>
+      </li>
+    </div>
   )
 }
 
